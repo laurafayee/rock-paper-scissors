@@ -23,31 +23,44 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function game(){
-    let playerScore = 0;
-    let computerScore = 0;
-    for(let i = 0; i < 5; i++){
-        const playerSelection = prompt('Enter rock, paper, or scissors:');
-        const computerSelection = computerPlay();
-        result = playRound(playerSelection, computerSelection);
-        if(result=='Tie'){
-            continue;
-        }
-        if(result=='Lose'){
-            computerScore++;
-        }else{
-            playerScore++;
-        }
-        console.log(playerScore);
-        console.log(computerScore);
-    }
-    if(playerScore>computerScore){
-        console.log('You win!');
-    }else if(playerScore<computerScore){
-        console.log('Computer wins!');
-    }else{
-        console.log('You tie!');
-    }
-}
+// function game(){
+//     let playerScore = 0;
+//     let computerScore = 0;
+//     for(let i = 0; i < 5; i++){
+//         const playerSelection = prompt('Enter rock, paper, or scissors:');
+//         const computerSelection = computerPlay();
+//         result = playRound(playerSelection, computerSelection);
+//         if(result=='Tie'){
+//             continue;
+//         }
+//         if(result=='Lose'){
+//             computerScore++;
+//         }else{
+//             playerScore++;
+//         }
+//         console.log(playerScore);
+//         console.log(computerScore);
+//     }
+//     if(playerScore>computerScore){
+//         console.log('You win!');
+//     }else if(playerScore<computerScore){
+//         console.log('Computer wins!');
+//     }else{
+//         console.log('You tie!');
+//     }
+// }
 
-game();
+// game();
+
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', function(){
+    playRound('rock', computerPlay());
+});
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', function(){
+    playRound('paper', computerPlay());
+});;
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', function(){
+    playRound('scissors', computerPlay());
+});
